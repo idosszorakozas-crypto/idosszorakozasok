@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Otthoni Szórakozás – Időseknek egyszerűen</title>
+  <meta name="description" content="Házhoz menő beállítás, betanítás és technikai segítség filmekhez, zenékhez és hangoskönyvekhez. Pendrive előkészítés, eszközök, vetítő opció.">
+  <style>
+    /* ===== Reset & base ===== */
+    ,::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;line-height:1.6;color:#0f172a;background:#0b1220}
+    :root{
+      --bg:#0b1220;
+      --card:#101827;
+      --muted:#9aa6b2;
+      --text:#e5e7eb;
+      --brand:#6ee7b7;
+      --brand-2:#22d3ee;
+      --accent:#a78bfa;
+      --border:#1f2a44;
+      --danger:#ef4444;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    .shadow{box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .btn{display:inline-block;padding:14px 20px;border-radius:12px;font-weight:700;border:1px solid transparent;transition:.2s}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#07111f}
+    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .btn-ghost{border-color:var(--border);color:var(--text);background:transparent}
+    .btn-ghost:hover{background:#0f1a2e}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--border);color:var(--muted);font-size:.85rem}
+    .section{padding:64px 0}
+    .card{background:linear-gradient(180deg,#101827,#0c172a);border:1px solid var(--border);border-radius:16px}
+    .grid{display:grid;gap:24px}
+    .grid-2{grid-template-columns:1fr;gap:28px}
+    .grid-3{grid-template-columns:1fr;gap:24px}
+    @media(min-width:860px){
+      .grid-2{grid-template-columns:1.2fr 1fr}
+      .grid-3{grid-template-columns:repeat(3,1fr)}
+    }
+    /* ===== Header ===== */
+    header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{display:flex;gap:10px;align-items:center}
+    .logo-dot{width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--brand),var(--brand-2))}
+    .logo h1{font-size:1.05rem;margin:0;color:#fff;letter-spacing:.2px}
+    .nav a{color:var(--muted);font-weight:600;margin-left:18px}
+    .nav a:hover{color:#fff}
+    /* ===== Hero ===== */
+    .hero{padding:72px 0 32px}
+    .hero .card{padding:28px}
+    .title{font-size:clamp(28px,4vw,44px);line-height:1.2;margin:8px 0 10px;color:#fff;letter-spacing:.2px}
+    .subtitle{color:var(--muted);font-size:1.08rem;margin-bottom:18px}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    /* ===== Feature strip ===== */
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    @media(min-width:700px){.features{grid-template-columns:repeat(4,1fr)}}
+    .feature{background:rgba(255,255,255,.03);border:1px dashed var(--border);padding:10px 12px;border-radius:12px;color:#cfd6de;font-size:.95rem}
+    /* ===== Pricing ===== */
+    .pricing{margin-top:8px}
+    .price-card{padding:22px;position:relative;overflow:hidden}
+    .price{font-size:2rem;color:#fff;margin:8px 0 6px}
+    .price small{font-size:.9rem;color:var(--muted)}
+    .inc{color:#cfece5}
+    .hint{color:#9aa6b2;font-size:.95rem}
+    .ribbon{position:absolute;right:-50px;top:16px;transform:rotate(35deg);background:linear-gradient(135deg,var(--brand-2),var(--accent));color:#051021;padding:6px 70px;font-weight:800}
+    ul.clean{list-style:none;padding:0;margin:12px 0 0}
+    ul.clean li{padding-left:26px;position:relative;margin:10px 0;color:#dbe2ea}
+    ul.clean li::before{content:"✓";position:absolute;left:0;color:#7cf0cc;font-weight:900}
+    /* ===== How it works ===== */
+    .steps{counter-reset:step}
+    .step{display:flex;gap:16px;align-items:flex-start}
+    .step:not(:last-child){margin-bottom:16px}
+    .step .dot{flex:0 0 36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#00212a;font-weight:900}
+    .step h4{margin:2px 0 4px;color:#fff}
+    .step p{margin:0;color:#c9d3de}
+    /* ===== Film list / Katalógus ===== */
+    .accordion{border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .acc-item+ .acc-item{border-top:1px solid var(--border)}
+    details{background:#0e182a}
+    summary{cursor:pointer;padding:16px 18px;font-weight:700;color:#e8eef6;outline:none;list-style:none}
+    summary::-webkit-details-marker{display:none}
+    .acc-body{padding:10px 18px 18px;color:#cfd6de}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;margin:4px 6px 0 0;color:#cfd6de}
+    /* ===== FAQ ===== */
+    .faq .q{font-weight:800;color:#fff}
+    .faq .a{color:#cfd6de}
+    /* ===== Footer ===== */
+    footer{border-top:1px solid var(--border);padding:28px 0;color:#a7b2bf}
+    .small{font-size:.92rem;color:#9fb0c2}
+    /* ===== Buttons row ===== */
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    /* ===== Form ===== */
+    input, textarea, select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:#0f1a2e;color:#fff}
+    label span{display:block;margin-bottom:6px;color:#cfd6de}
+    .ok{color:#6ee7b7}
+    .err{color:var(--danger)}
+  </style>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <h1>Otthoni Szórakozás</h1>
+      </div>
+      <nav aria-label="Fő navigáció">
+        <a href="#arak">Árak</a>
+        <a href="#mukodes">Hogyan működik</a>
+        <a href="#filmlista">Filmlista</a>
+        <a href="#kapcsolat">Kapcsolat</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container grid grid-2">
+      <div class="card shadow">
+        <span class="badge">Időseknek, családoknak, bárkinek, aki egyszerű megoldást szeretne</span>
+        <h2 class="title">Nézd azt, amit szeretnél, amikor szeretnéd — <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">mi mindent beállítunk helyetted</span>.</h2>
+        <p class="subtitle">
+          A TV-csatornákon ritkán az megy, amit nézni szeretnél. Mi segítünk, hogy <strong>legálisan</strong> és egyszerűen férj hozzá kedvenc filmekhez, zenékhez és hangoskönyvekhez:
+          <strong>házhoz megyünk, beállítjuk, betanítjuk</strong>.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#arak">Csomagok és árak</a>
+          <a class="btn btn-ghost" href="#kapcsolat">Ingyenes visszahívás kérése</a>
+        </div>
+        <div class="hero-list">
+          <span class="pill">Személyes kiszállás</span>
+          <span class="pill">Pendrive előkészítéssel</span>
+          <span class="pill">Hangszóró/fejhallgató opció</span>
+          <span class="pill">Vetítő opció</span>
+        </div>
+        <div class="features" aria-label="Gyors infók">
+          <div class="feature">Türelmes betanítás • nagybetűs segédlet</div>
+          <div class="feature">Régi és új TV-khez is</div>
+          <div class="feature">Havi frissítések igény szerint</div>
+          <div class="feature">Telefonos támogatás</div>
+        </div>
+      </div>
+      <div class="card shadow" aria-label="Illusztráció">
+        <img src="https://images.unsplash.com/photo-1581905764498-f1b60bae941a?q=80&w=1400&auto=format&fit=crop" alt="Távirányító és TV – egyszerű kezelés">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pricing ===== -->
+  <section id="arak" class="section">
+    <div class="container">
+      <h3 class="title" style="font-size:32px">Csomagok és árak</h3>
+      <p class="hint">A feltüntetett tartalmi mennyiségek a <em>legális hozzáférés</em> beállítását és támogatását jelentik (streaming előfizetések kezelése, jogtiszta/nyilvános tartalmak ajánlása, saját médiák rendezése).</p>
+      <div class="grid grid-3 pricing">
+        <!-- Alap -->
+        <div class="card price-card shadow" aria-labelledby="p1">
+          <h4 id="p1" class="q" style="margin:0;color:#fff">Alapcsomag</h4>
+          <div class="price">11 990 Ft <small>/ hó</small></div>
+          <p class="inc">Tartalmazza a házhoz menést és a teljes beállítást.</p>
+          <ul class="clean">
+            <li>Havi legfeljebb <strong>20 film</strong> elérésének beállítása/ajánló</li>
+            <li><strong>80 zeneszám</strong> kiválasztásának és elérésének beállítása</li>
+            <li><strong>5 hangoskönyv</strong> elérésének beállítása</li>
+            <li><strong>Pendrive</strong> előkészítése és tartalom rendezése*</li>
+            <li><strong>Házhoz megyünk</strong>, beállítjuk, betanítjuk</li>
+          </ul>
+          <p class="small">*Saját, jogtiszta vagy nyilvános (public domain) tartalmaid rendszerezése.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary order-btn" data-package="Alapcsomag" href="#megrendeles">Megrendelem</a>
+            <a class="btn btn-ghost" href="#mukodes">Hogyan működik?</a>
+          </div>
+        </div>
+        <!-- Prémium -->
+        <div class="card price-card shadow" aria-labelledby="p2">
+          <div class="ribbon" aria-hidden="true">Legnépszerűbb</div>
+          <h4 id="p2" class="q" style="margin:0;color:#fff">Prémium csomag</h4>
+          <div class="price">16 990 Ft <small>/ hó</small></div>
+          <p class="inc">Minden az Alapcsomagból + eszköz a zenehallgatáshoz.</p>
+          <ul class="clean">
+            <li>Alapcsomag tartalma (20 film / 80 zene / 5 hangoskönyv támogatása)</li>
+            <li><strong>Hangszóró vagy fejhallgató biztosítása</strong> használatra</li>
+            <li>Házhoz megyünk, beállítjuk az eszközt is</li>
+          </ul>
+          <p class="small">Az eszköz árát egyszeri vásárlással is rendezheted.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary order-btn" data-package="Prémium csomag" href="#megrendeles">Megrendelem</a>
+            <a class="btn btn-ghost" href="#eszkozok">Eszköz opciók</a>
+          </div>
+        </div>
+        <!-- Vetítős -->
+        <div class="card price-card shadow" aria-labelledby="p3">
+          <h4 id="p3" class="q" style="margin:0;color:#fff">Vetítős csomag</h4>
+          <div class="price">23 990 Ft <small>/ hó</small></div>
+          <p class="inc">Ha nincs okos TV, se gond – projektor opcióval.</p>
+          <ul class="clean">
+            <li>Alapcsomag tartalma teljes körű beállítással</li>
+            <li><strong>Vetítő eszköz biztosítása</strong> használatra</li>
+            <li>Házhoz megyünk, felszereljük és betanítjuk</li>
+          </ul>
+          <p class="small">Vásárlási opció: vetítő egyszeri <strong>40 000 Ft</strong>.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary order-btn" data-package="Vetítős csomag" href="#megrendeles">Megrendelem</a>
+            <a class="btn btn-ghost" href="#eszkozok">Eszköz opciók</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eszköz opciók -->
+      <div id="eszkozok" class="card shadow" style="margin-top:24px;padding:22px">
+        <h4 class="q" style="margin:0 0 8px;color:#fff">Eszköz opciók és árak</h4>
+        <ul class="clean">
+          <li><strong>Hangszóró</strong> – egyszeri <strong>X Ft</strong> (vagy Prémium csomag része)</li>
+          <li><strong>Fejhallgató</strong> – egyszeri <strong>X Ft</strong> (vagy Prémium csomag része)</li>
+          <li><strong>Vetítő vásárlás</strong> – egyszeri <strong>40 000 Ft</strong></li>
+        </ul>
+        <p class="hint">Az eszközöket beüzemeljük, csatlakoztatjuk és megtanítjuk a használatukat.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section id="mukodes" class="section">
+    <div class="container grid grid-2">
+      <div>
+        <h3 class="title" style="font-size:32px">Hogyan működik?</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="dot">1</div>
+            <div>
+              <h4>Válassz csomagot</h4>
+              <p>Alap, Prémium vagy Vetítős – mindegyik tartalmazza a <strong>házhoz menést és teljes beállítást</strong>.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">2</div>
+            <div>
+              <h4>Kedvencek kijelölése</h4>
+              <p>Segítünk kiválasztani és <strong>legálisan elérni</strong> a kért filmeket, zenéket, hangoskönyveket (streaming, public domain, saját médiák).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">3</div>
+            <div>
+              <h4>Beállítás & betanítás</h4>
+              <p>TV/projektor, pendrive, hangszóró/fejhallgató csatlakoztatás, nagybetűs útmutató, türelmes betanítás.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">4</div>
+            <div>
+              <h4>Havi frissítés (opcionális)</h4>
+              <p>Havonta új válogatások, lista frissítés, kérés szerinti módosítások.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card shadow" style="padding:22px">
+        <h4 class="q" style="margin:0 0 8px;color:#fff">Miért jobb ez, mint a csatorna kapcsolgatás?</h4>
+        <ul class="clean">
+          <li>Azt nézed, amit szeretnél – nem azt, amit épp adnak</li>
+          <li>Nincs bonyolult menü – mindent előkészítünk</li>
+          <li>Segítünk emlékezni: nagybetűs, egyszerű lépésről-lépésre útmutató</li>
+          <li>Telefonos segítség, ha elakadnál</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Film list -> KATALÓGUS ===== -->
+  <section id="filmlista" class="section">
+    <div class="container">
+      <h3 class="title" style="font-size:32px">Katalógus: Filmek • Zenék • Hangoskönyvek</h3>
+      <p class="hint">Az alábbi válogatásból közösen jelöljük ki a kedvenceket. A hozzáférést <strong>legális módon</strong> állítjuk be (streaming, public domain, saját példányok).</p>
+
+      <div class="accordion">
+        <!-- FILMEK -->
+        <div class="acc-item">
+          <details open>
+            <summary>FILMEK – több, mint 2.000 film</summary>
+            <div class="acc-body">
+              <p><strong>Régi magyar, fekete-fehér klasszikus filmek</strong><br>
+              (Kabos Gyula, Csortos Gyula, Karády Katalin, Turay Ida, Jávor Pál, Perczel Zita, Szeleczky Zita, Páger Antal, Kiss Manyi, Dayka Margit, Latabár Kálmán, stb.)</p>
+
+              <p><strong>Régi amerikai, olasz, francia, szovjet és német néma és klasszikus filmek</strong><br>
+              (Pl: Chaplin, Buster Keaton, Billy Wilder, Eisenstein, Vittorio De Sica, Hitchcock, Jean Renoir, Fellini, Bergman, Buñuel, Fritz Lang, stb. rendezőktől – Jean Gabin, Marilyn Monroe, Cary Grant, Greta Garbo, Clarke Gable, Marcello Mastroianni, Sofia Loren, Gina Lollobrigida, Brigitte Bardot, Bela Lugosi, Humphrey Bogart, Audrey Hepburn, Spencer Tracy, Marlene Dietrich, stb. sztárokkal)</p>
+
+              <p><strong>A legnagyobb régi sikerfilmek</strong><br>
+              (Pl: Elfújta a szél, Van aki forrón szereti, Keresztapa, Amadeus, Száll a kakukk fészkére, Casino, Dühöngő bika, Rocky, Volt egyszer egy vadnyugat – az elmúlt 70 év legjobb, legnézettebb filmjeiből több száz kedvenc.)</p>
+
+              <p><strong>Vígjátékok</strong><br>
+              (Pl: Neil Simon, Woody Allen, Louis de Funes, Jack Lemmon, Walter Matthau, Gene Wilder, Mel Brooks, Sacha Baron Cohen, és még sok más nagy nevettető több tucat filmjéből.)</p>
+
+              <p><strong>Zenés revü és musical filmek</strong><br>
+              (Pl: Fred Astaire – Ginger Rogers, Gene Kelly és Sinatra, Sammy Davis, Dean Martin főszereplésével régi revüfilmek, valamint My Fair Lady, Ének az esőben, Hello Dolly, Annie, Oliver, Hair, Hegedűs a háztetőn, Jézus Krisztus Szupersztár, Chicago és még sok-sok zenés és opera és operett-film.)</p>
+
+              <p><strong>Újabb (10–30 éves) Oscar-díjas vagy művészfilmek</strong><br>
+              (A legjobb száz amerikai és európai művészfilm)</p>
+
+              <p><strong>Tévésorozatok</strong><br>
+              (Több, mint 500 rész a legjobb sorozatokból.)</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- ZENÉK -->
+        <div class="acc-item">
+          <details>
+            <summary>ZENÉK – több, mint 5.000 dal</summary>
+            <div class="acc-body">
+              <p><strong>Klasszikusok legnagyobbjai</strong> – Bach, Mozart, Beethoven, Chopin, Puccini, Wagner, Debussy, Ravel, Sztravinszkij, Bartók műveiből.</p>
+              <p><strong>Régi magyar kuplék és sanzonok</strong></p>
+              <p><strong>Régi magyar operettek</strong></p>
+              <p><strong>’60–’80-as évek</strong> magyar táncdalfesztiváljai, magyar pop–rock előadók dalai.</p>
+              <p><strong>Amerikai jazz standardek</strong> – Louis Armstrong, Frank Sinatra, Ray Charles, Bing Crosby, Ella Fitzgerald, Sammy Davis, Aretha Franklin, Nat King Cole, Barbra Streisand előadásában – Gershwin, Cole Porter, Jerome Kern, Irving Berlin és társaik legnagyobb slágerei.</p>
+              <p><strong>Régi olasz, francia és spanyol sanzonok, dalok</strong></p>
+              <p><strong>Operák</strong></p>
+            </div>
+          </details>
+        </div>
+
+        <!-- HANGOSKÖNYVEK -->
+        <div class="acc-item">
+          <details>
+            <summary>HANGOSKÖNYVEK – több, mint 200 hangoskönyv</summary>
+            <div class="acc-body">
+              <p>Magyar és külföldi klasszikus és kortárs művek <strong>kiváló színművészek tolmácsolásában</strong>.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top:10px"><em>A fenti többezres listán kívül kívánságra bármely filmet, zenét és könyvet beszerzünk!</em></p>
+    </div>
+  </section>
+
+  <!-- ===== Order (űrlap nélkül) ===== -->
+  <section id="megrendeles" class="section">
+    <div class="container card shadow" style="padding:24px">
+      <h3 class="title" style="font-size:28px">Csomag megrendelése</h3>
+      <p class="hint">Nincs űrlap. Megrendeléshez hívd a telefonszámot vagy írj e-mailt az alábbi elérhetőségen.</p>
+
+      <div class="cta-row" style="margin-top:6px">
+        <a class="btn btn-primary" href="tel:+36708857587">Telefonos rendelés: 06708857587</a>
+        <a class="btn btn-ghost" href="mailto:idos.szorakozas@gmail.com?subject=Megrendel%C3%A9s%20-%20Otthoni%20Sz%C3%B3rakoz%C3%A1s&body=Nevem:%0AV%C3%A1lasztott%20csomag:%20(Alap%20/%20Pr%C3%A9mium%20/%20Vet%C3%ADt%C5%91s)%0AMegjegyz%C3%A9s:">E-mail: idos.szorakozas@gmail.com</a>
+      </div>
+
+      <p class="small" style="margin-top:12px">Kézbesítés: Budapest és környéke. Időpont egyeztetés telefonon.</p>
+    </div>
+  </section>
+
+  <!-- ===== Contact (űrlap nélkül) ===== -->
+  <section id="kapcsolat" class="section">
+    <div class="container card shadow" style="padding:24px">
+      <h3 class="title" style="font-size:28px">Elérhetőség</h3>
+      <ul class="clean">
+        <li><strong>Név:</strong> Kalmár Samu</li>
+        <li><strong>E-mail:</strong> <a href="mailto:idos.szorakozas@gmail.com">idos.szorakozas@gmail.com</a></li>
+        <li><strong>Telefon:</strong> <a href="tel:+36708857587">06708857587</a></li>
+      </ul>
+
+      <div class="cta-row" style="margin-top:16px">
+        <a class="btn btn-primary" href="tel:+36708857587">Hívás indítása</a>
+        <a class="btn btn-ghost" href="mailto:idos.szorakozas@gmail.com?subject=%C3%89rdekl%C5%91d%C3%A9s%20-%20Otthoni%20Sz%C3%B3rakoz%C3%A1s">E-mail írása</a>
+      </div>
+
+      <p class="small" style="margin-top:10px">Szolgáltatási terület: Budapest és környéke (egyedi megállapodás szerint vidéken is).</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div>© <span id="y"></span> Otthoni Szórakozás</div>
+        <div class="small">Legális hozzáférések beállítása • Házhoz menő segítség • Türelmes betanítás</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // aktuális év a láblécben
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // "Megrendelem" gombok: a csomagválasztó már nem szükséges, de a horgony megmarad
+    const pkgField = document.getElementById('packageField');
+    const pkgSelect = document.getElementById('packageSelect');
+    document.querySelectorAll('.order-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const p = btn.getAttribute('data-package') || '';
+        if(pkgField) pkgField.value = p;
+        if(pkgSelect) pkgSelect.value = p || '';
+      });
+    });
+  </script>
+</body>
+</html>
